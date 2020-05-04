@@ -14,3 +14,5 @@ def default():
     for i in range(101):
         update_progress(i/100.0)
         time.sleep(0.1)
+
+print("")
