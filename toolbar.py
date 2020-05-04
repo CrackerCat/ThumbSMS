@@ -15,4 +15,4 @@ def default():
         update_progress(i/100.0)
         time.sleep(0.1)
 
-print("")
+print("\n")
