@@ -121,16 +121,15 @@ class Service:
 
             # Check status
             if r.status_code == 200:
-                print("\033[1;32m"+"[+]"+"\033[0m"+ " " + okay)
+                pass
             elif r.status_code == 429:
-                print("\033[1;33m"+"[!]"+"\033[0m"+ " " + error)
+                pass
             else:
-                #print(r.text)
-                print("\033[1;33m"+"[!]"+"\033[0m" + " " + error)
+                pass
             
             return r.status_code
 
         except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectTimeout):
-            print("\033[1;33m"+"[!]"+"\033[0m"+ " " + error)
+            pass
         except (requests.exceptions.ConnectionError):
-            print("\033[1;33m"+"[!]"+"\033[0m"+ " " + error)
+            pass
