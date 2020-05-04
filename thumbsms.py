@@ -1,2 +1,14 @@
 import main as thumbsms
+import toolbar
+import time
+print("Bypassing services...")
+time.sleep(1)
+print("Selecting targets...")
+time.sleep(0.5)
+print("Counting timeout...")
+time.sleep(0.5)
+print("Counting threads...")
+time.sleep(0.5)
+print("Prepating env...")
+toolbar.default()
 thumbsms.SMS_ATTACK(10, 10, None)
