@@ -11,6 +11,6 @@ def update_progress(progress):
     sys.stdout.flush()
 
 def default():
-    for i in xrange(101):
+    for i in range(101):
         update_progress(i/100.0)
         time.sleep(0.1)
