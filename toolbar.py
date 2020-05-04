@@ -9,7 +9,6 @@ def update_progress(progress):
     text = "\r {1}% {0} {2}".format( "#"*block + " " *(barLength-block), int(progress*100), status)
     sys.stdout.write(text)
     sys.stdout.flush()
-    print("")
 
 def default():
     for i in range(101):
