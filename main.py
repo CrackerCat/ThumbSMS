@@ -64,4 +64,4 @@ def SMS_ATTACK(threads, attack_time, phone):
 		FINISH = True
 		thread.join()
 	
-	print("Attack completed.")
+	print("\nAttack completed.")
