@@ -44,7 +44,7 @@ def SMS_ATTACK(threads, attack_time, phone):
 	def sms_flood():
 		sum = 0
 		while not FINISH:
-			sum += 10
+			sum += 1
 			toolbar.update_progress(sum/100.0)
 			service = randomData.random_service(services)
 			service = request.Service(service)
